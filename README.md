@@ -12,3 +12,6 @@ This repo serves as my second brain — a place to document what I learn, fix, o
 - And more...
 
 > Notes written by me, for me — but shared for anyone who might find them useful.
+
+Penetration Testing
+-OSINT
