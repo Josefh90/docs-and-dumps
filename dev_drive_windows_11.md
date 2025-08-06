@@ -1,5 +1,22 @@
 # 🛠️ Dev Drive on Windows 11 – Complete Guide
 
+## 📑 Table of Contents
+
+- [✅ What is a Dev Drive?](#-what-is-a-dev-drive)
+- [📋 Requirements](#-requirements)
+- [🧭 Step-by-Step Setup](#-step-by-step-setup)
+  - [1. Open Dev Drive Setup](#1-open-dev-drive-setup)
+  - [2. Choose Drive Type](#2-choose-drive-type)
+  - [3. Configure Details](#3-configure-details)
+- [💻 Optional: Command Line (CLI)](#-optional-command-line-cli)
+- [⚠️ Common Errors & Fixes](#-common-errors--fixes)
+- [🔄 Removing a Dev Drive](#-removing-a-dev-drive)
+- [📈 Why Use a Dev Drive?](#-why-use-a-dev-drive)
+- [📌 Summary of Commands](#-summary-of-commands)
+- [📚 References](#-references)
+- [📚 Appendix: Glossary & Common Questions](#-appendix-glossary--common-questions)
+
+
 ## ✅ What is a Dev Drive?
 
 A **Dev Drive** is a special type of volume in Windows 11 optimized for developers. It:
@@ -105,3 +122,49 @@ fsutil devdrv setfiltersallowed PrjFlt
 
 - [Microsoft Docs – Dev Drive](https://learn.microsoft.com/en-us/windows/dev-drive/)
 - [YouTube Tutorial (English)](https://www.youtube.com/watch?v=B83u7l7NFN4)
+
+---
+
+## 📚 Appendix: Glossary & Common Questions
+
+### 🔤 Glossary
+
+| Term | Description |
+|------|-------------|
+| **Dev Drive** | A developer-optimized storage volume on Windows using ReFS and Defender Performance Mode |
+| **ReFS** | Resilient File System – modern file system designed for reliability and scalability |
+| **VHD/VHDX** | Virtual Hard Disk formats; VHDX is newer, supports larger volumes, and is more robust |
+| **Performance Mode** | Windows Defender mode that reduces real-time scanning latency on trusted Dev Drives |
+| **Trusted Drive** | A Dev Drive explicitly marked as trusted by the OS, enabling performance optimizations |
+| **fsutil** | Command-line utility for managing file systems and drives on Windows |
+| **Projected File System (PrjFlt)** | Windows filter used for technologies like Git Virtual File System (GVFS) |
+
+---
+
+### ❓ Frequently Asked Questions (FAQ)
+
+**Q: What happens if I use NTFS instead of ReFS?**  
+A: The Dev Drive won't be optimized. Defender Performance Mode requires ReFS.
+
+**Q: Do I need to recreate my Dev Drive if I move it to another PC?**  
+A: Yes, especially if you're using a VHD/VHDX – you’ll need to reattach and trust the volume.
+
+**Q: Can I use Dev Drive for everything?**  
+A: No. It's optimized for **source code and development tools**, not general storage or large media files.
+
+**Q: Is it safe to store projects in a Dev Drive?**  
+A: Yes – it's built for reliability. Just ensure backups like with any development environment.
+
+**Q: How do I remove a Dev Drive safely?**  
+A: Delete it via Settings > Storage. If using a VHDX, detach it in Disk Management, then delete the file.
+
+**Q: Can I create multiple Dev Drives?**  
+A: Yes! As long as you have enough free space and system resources.
+
+**Q: How do I verify that Performance Mode is active?**  
+A: Use `fsutil devdrv query Z:` to check trust status. If it's trusted, Performance Mode is active.
+
+**Q: Do I need Defender installed?**  
+A: Defender must be active for Performance Mode. Third-party antivirus may not support Dev Drive optimizations.
+
+---
